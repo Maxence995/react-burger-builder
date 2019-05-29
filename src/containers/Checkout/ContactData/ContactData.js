@@ -55,9 +55,7 @@ class ContactData extends Component {
                     value:''
             }
         },
-        loading: false
-        
-     
+        loading: false  
 }
     
     orderHandler =(event)=>{
@@ -79,6 +77,12 @@ class ContactData extends Component {
                 this.setState( { loading: false} );
             } );
     }
+
+        inputChangeHandler=(event, inputIdentifier)=>{
+            console.log(event.target.value);
+
+        }
+
     render(){
         const formElementArray=[];
         for (let key in this.state.orderForm){
@@ -96,6 +100,7 @@ class ContactData extends Component {
                         elementType={formElement.config.elementType}
                         elementConfig={formElement.config.elementConfig}
                         value={formElement.config.value}
+                        changed={this.inputChangeHandler}
                         />
                     ))}
                
